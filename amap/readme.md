@@ -24,10 +24,14 @@
 3. 读取高德地图POI所有的type和typename
 4. 对每个小方格进行获取
 
-#### 爬取面状矢量
+#### 爬取线状地物
+实现：download_line.py
+
+
+#### 爬取线状地物
 示例结果：WGS84坐标系结果 与 高清影像贴合
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200228224011585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1bW1lcl9kZXc=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200228231238493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1bW1lcl9kZXc=,size_16,color_FFFFFF,t_70)
 
 实现：download_polygon.py
 步骤：

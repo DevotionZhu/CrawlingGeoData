@@ -53,6 +53,10 @@ def amap_polygon(config):
         for i in range(0, len(poi_gdf)):
             id = poi_gdf.iloc[i]["id"]
             poly = poiinfo.amap_poiinfo_polygon(key, id)
+
+            print("sleep 2s")
+            time.sleep(2)  # 每一个间隔2s
+
             if poly is None:
                 no_poly_cnt += 1
                 print(f"{no_poly_cnt}个POI没有边界信息")
@@ -72,9 +76,6 @@ def amap_polygon(config):
 
                 print("sleep 5s")
                 time.sleep(5) #每2个间隔5s
-            else:
-                print("sleep 2s")
-                time.sleep(2) #每一个间隔2s
 
         gdf = geopandas.GeoDataFrame(
             attr,
@@ -101,7 +102,7 @@ if __name__ == '__main__':
         "polygon_out_fp" : "厦门市商务住宅边界_gcj02.json", # json格式
     }
     amap_polygon(config) # 爬取面状的边界信息
-    tools.PntGeoJSONToShp_WGS84(config["poi_out_fp"])  # 转成shp文件，并把坐标系从火星坐标转到WGS84
-    tools.PolygonGeoJSONToShp_WGS84(config["polygon_out_fp"]) # 转成shp文件，并把坐标系从火星坐标转到WGS84
+    # tools.PntGeoJSONToShp_WGS84(os.path.join(config["out_dir"], config["poi_out_fp"]) )  # 转成shp文件，并把坐标系从火星坐标转到WGS84
+    tools.PolygonGeoJSONToShp_WGS84(os.path.join(config["out_dir"], config["polygon_out_fp"]) )# 转成shp文件，并把坐标系从火星坐标转到WGS84
 
     pass
