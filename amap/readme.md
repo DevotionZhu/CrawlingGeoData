@@ -12,7 +12,7 @@
 
 ## 说明
 1. 所有接口爬取的坐标标准为GCJ-02火星坐标，并且都保存成GeoJSON格式
-2. 想要转成shp文件，可调用tools.py文件中的函数
+2. 想要转成shp文件，并转成WGS84坐标系，可调用tools.py文件中的函数
 
 ## 爬取策略
 ##### 爬取POI
@@ -24,6 +24,21 @@
 3. 读取高德地图POI所有的type和typename
 4. 对每个小方格进行获取
 
+#### 爬取面状矢量
+示例结果：WGS84坐标系结果 与 高清影像贴合
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200228224011585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1bW1lcl9kZXc=,size_16,color_FFFFFF,t_70)
+
+实现：download_polygon.py
+步骤：
+
+1. 设置爬取参数，获取POI
+2. 根据POI ID获取边界
+
+注意：
+1. 有些POI没有矢量边界
+2. 生成的为火星坐标的GeoJSON文件，若要转成WGS84坐标系，或生成JSON，可使用tools.py中的函数
+3. 还未做反爬策略
 
 ## Github相关项目
 1. https://blog.csdn.net/weixin_40902527/article/details/85759232
