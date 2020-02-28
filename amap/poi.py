@@ -13,8 +13,8 @@
 import urllib.parse
 from urllib import request
 import json
-from CrawlingGeoData.amap import tools
-from CrawlingGeoData.amap import district
+from amap import tools
+from amap import district
 from shapely.geometry import point
 import geopandas
 import os
@@ -31,6 +31,7 @@ def amap_poi(config):
         city = config["city"]                   # 城市
         save_fp = config["poi_out_fp"]          # 存储路径
         region = district.get_region(config)    # 区域范围
+        num_of_per_time = config.get("number_of_per_time", 500)  # 每一次存储到文件的数据量
 
         # 爬取的字段
         save_field = config.get("save_field", ["id", "name"] )
@@ -79,7 +80,6 @@ def amap_poi(config):
                         attr[field].append( str(value) )
 
                     # 500个数据存一次文件
-                    num_of_per_time = config.get("number_of_per_time", 500) #每一次存储到文件的数据量
                     if poinum % num_of_per_time==0:
                         gdf = geopandas.GeoDataFrame(
                             attr,

@@ -12,7 +12,7 @@
 import urllib.parse
 import urllib.request
 import json
-from CrawlingGeoData.amap import tools
+from amap import tools
 
 district_url = 'https://restapi.amap.com/v3/config/district'
 

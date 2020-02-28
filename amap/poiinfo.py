@@ -110,10 +110,8 @@ def amap_poiinfo_polygon(key, id):
                     pnt_arr = []
                     dataArr = [x.split('|') for x in value.split('_')]
                     for i in dataArr:
-                        pnt = []
                         f = i[0].split(',')
-                        pnt.append(float(f[0]))
-                        pnt.append(float(f[1]))
+                        pnt = ( float(f[0]), float(f[1]) )
                         pnt_arr.append(pnt)
                     return pnt_arr
 

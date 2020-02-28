@@ -10,9 +10,13 @@
 | 根据POI的ID查询地物 | ditu.amap.com/detail/get/detail?id=B0FFHVEECG |
 | 根据POI的ID查找边界信息 |  https://gaode.com/service/poiInfo?query_type=IDQ&pagesize=20&pagenum=1&qii=true&cluster_state=5&need_utd=true&utd_sceneid=1000&div=PC1000&addr_poi_merge=true&is_classify=true&zoom=11&id=B022F0071G&city=341003 |
 
+## 说明
+1. 所有接口爬取的坐标标准为GCJ-02火星坐标，并且都保存成GeoJSON格式
+2. 想要转成shp文件，可调用tools.py文件中的函数
+
 ## 爬取策略
 ##### 爬取POI
-实现：getpoi.py
+实现：poi.py
 步骤：
 
 1. 根据“行政区边界”获得研究区的范围
