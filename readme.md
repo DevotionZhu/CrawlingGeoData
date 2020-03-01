@@ -14,7 +14,7 @@
         - district  获取行政区边界
         - poi       POI服务
         - poiinfo   POI信息接口（可获得POI的边界）
-        - download_line 下载线状地物（待更）
+        - download_line 下载线状地物
         - download_polygon 下载面状地物
         - tools     工具
         - readme    说明

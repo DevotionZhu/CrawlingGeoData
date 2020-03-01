@@ -101,6 +101,34 @@ def PntGeoJSONToShp_WGS84(json_fp, shp_fp=None): #点状GeoJSON文件转成SHP�
     gdf.to_file(shp_fp, encoding="utf-8")
     return shp_fp
 
+def LineGeoJSONToShp_WGS84(json_fp, shp_fp=None): #线状GeoJSON文件转成SHP（火星坐标 转 WGS84）
+    import coordinate_conversion
+    from shapely.geometry import linestring
+
+    if not json_fp.endswith("json"): return False
+
+    if shp_fp is None:
+        shp_fp = "{}_wgs84.shp".format(json_fp[:-5])
+    elif not shp_fp.endswith("shp"):
+        return False
+
+    gdf = geopandas.read_file(json_fp)
+    # GCJ02转WGS84
+    for i in range(0, len(gdf)):
+        line = gdf.geometry[i]  # 获取空间属性，即GeoSeries
+        old_pnts = line.coords #获得坐标串
+        new_pnts = [] #新坐标
+        for old_pnt in old_pnts:
+            lng, lat = old_pnt
+            lng, lat = coordinate_conversion.gcj02towgs84(lng, lat) #转换
+            new_pnts.append( (lng, lat) )
+        gdf.geometry[i] = linestring.LineString(new_pnts)
+
+    # 设置成WGS84，并保存
+    gdf.crs = {'init' :'epsg:4326'}
+    gdf.to_file(shp_fp, encoding="utf-8")
+    return shp_fp
+
 def PolygonGeoJSONToShp_WGS84(json_fp, shp_fp=None): #面状GeoJSON文件转成SHP（火星坐标 转 WGS84）
     import coordinate_conversion
     from shapely.geometry import polygon

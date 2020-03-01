@@ -28,7 +28,7 @@
 实现：download_line.py
 
 
-#### 爬取线状地物
+#### 爬取面状地物
 示例结果：WGS84坐标系结果 与 高清影像贴合
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200228231238493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1bW1lcl9kZXc=,size_16,color_FFFFFF,t_70)
@@ -48,3 +48,4 @@
 1. https://blog.csdn.net/weixin_40902527/article/details/85759232
 2. https://github.com/Accright/java-map-spider 获取高德和百度地图的POI及边界数据爬虫-JAVA版本
 3. https://github.com/tonychen257/-POI- 里面包含了高德地图POI爬取，百度高德渔网点爬取
+4. https://www.cnblogs.com/feffery/p/10982003.html

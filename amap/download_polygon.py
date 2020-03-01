@@ -101,7 +101,7 @@ if __name__ == '__main__':
         "poi_out_fp": "厦门市商务住宅POI_gcj02.json",  # json格式
         "polygon_out_fp" : "厦门市商务住宅边界_gcj02.json", # json格式
     }
-    amap_polygon(config) # 爬取面状的边界信息
+    # amap_polygon(config) # 爬取面状的边界信息
     # tools.PntGeoJSONToShp_WGS84(os.path.join(config["out_dir"], config["poi_out_fp"]) )  # 转成shp文件，并把坐标系从火星坐标转到WGS84
     tools.PolygonGeoJSONToShp_WGS84(os.path.join(config["out_dir"], config["polygon_out_fp"]) )# 转成shp文件，并把坐标系从火星坐标转到WGS84
 
